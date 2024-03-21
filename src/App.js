@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/" element={<Postlist />} />
           <Route exact path="/postform" element={<AddPostForm />} />
           <Route exact path="/posts/:postID" element={<SinglePost />} />
-          <Route exact path="/editpost" element={<PostEdit />} />
+          <Route exact path="/editpost/:postID" element={<PostEdit />} />
         </Routes>
       </HashRouter>
     </>

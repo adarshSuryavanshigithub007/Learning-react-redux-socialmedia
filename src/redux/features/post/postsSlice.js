@@ -1,18 +1,35 @@
-import { createSlice } from "@reduxjs/toolkit"
-
-
+import { createSlice, nanoid } from "@reduxjs/toolkit"
 
 const initialState = []
 export const postsSlice = createSlice({
     name: 'post',
     initialState,
     reducers: {
-        addPost(state,action){
-            // Redux Toolkit automatically 
-            // returns the new state based on the mutations made in the reducer functions.
-            state.push(action.payload)
+        postAdded: {
+            reducer(state, action) {
+                state.push(action.payload)
+            },
+    
+        prepare(title, content, userId) {
+            return {
+                payload: {
+                    id: nanoid(),
+                    title,
+                    content,
+                    user: userId
+                }
+            }
+        },
+    },
+        updatePost(state, action) {
+            const { id, title, content } = action.payload
+            const existingPost = state.find(post => post.id === id)
+            if (existingPost) {
+                existingPost.title = title
+                existingPost.content = content
+            }
         }
     }
 })
 
-export const {addPost} = postsSlice.actions
+export const { postAdded, updatePost } = postsSlice.actions
