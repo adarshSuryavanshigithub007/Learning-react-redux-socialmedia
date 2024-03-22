@@ -3,7 +3,7 @@ import { postsSlice } from "./features/post/postsSlice";
 import storage from 'redux-persist/lib/storage';
 import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
-import { usersSlice } from "./userSlice";
+import { usersSlice } from "./features/user/userSlice";
 
 const rootReducer = combineReducers({
     posts: postsSlice.reducer,

@@ -21,9 +21,7 @@ const PostEdit = () => {
     const onContentChange = (event) => {
         setContent(event.target.value)
     }
-    const handleChangeUser = (event) => {
-        setUserId(event.target.value);
-    }
+    
 
     const submitPost = () => {
         if (title && content) {
